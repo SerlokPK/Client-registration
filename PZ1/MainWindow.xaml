@@ -1,0 +1,69 @@
+﻿<Window x:Class="PZ1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PZ1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="700">
+    <Grid>
+        <Image x:Name="animefreak_facebook_cover_by_bellqo_d7pr7ym_png" Margin="-162,161,434,160" Source="animefreak_facebook_cover_by_bellqo-d7pr7ym.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-89.885"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="animefreak_facebook_cover_by_bellqo_d7pr7ym_png_Copy5" Margin="434,162,-160,159" Source="animefreak_facebook_cover_by_bellqo-d7pr7ym.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Button x:Name="buttonAdd" Content="ADD ANIME" HorizontalAlignment="Left" Margin="123,368,0,0" VerticalAlignment="Top" Width="133" Height="41" FontWeight="Bold" FontSize="18" BorderBrush="#FF040404" Background="#FFDAFFEC" Click="buttonAdd_Click"/>
+        <Button x:Name="buttonEXIT" Content="EXIT" HorizontalAlignment="Left" Margin="437,368,0,0" VerticalAlignment="Top" Width="132" Height="41" FontWeight="Bold" FontSize="18" BorderBrush="#FF040404" Background="#FFDAFCEC" Click="buttonEXIT_Click"/>
+        <DataGrid x:Name="dataGridItems" ItemsSource="{Binding AnimeList}" HorizontalAlignment="Left" Height="344" Margin="105,10,0,0" VerticalAlignment="Top" Width="479"  SelectionMode="Single" IsReadOnly="True" AutoGenerateColumns="False"  FontSize="18">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Name="Picture" Source="{Binding Image}" Width="100" Height="85"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTextColumn Header="Title" TextBlock.TextAlignment="Left" Binding="{Binding Title}" Width="70">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="IMDB" Binding="{Binding Imdb}" Width="70"/>
+                <DataGridTextColumn Header="Restriction" Binding="{Binding Restriction}" Width="110"/>
+                
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <Button Name="Button_read" Content="Read" Width="118" Click="Button_read_Click" ></Button>
+                                <Button Name="Button_change" Content="Change" Click="Button_change_Click" ></Button>
+                                <Button Name="Button_del" Content="Delete" Click="Button_del_Click"> </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+    </Grid>
+</Window>
